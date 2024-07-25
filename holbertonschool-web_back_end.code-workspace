@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../.vscode-server"
+		},
+		{
+			"path": "../../.local"
+		}
+	],
+	"settings": {}
+}
