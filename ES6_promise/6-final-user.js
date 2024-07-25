@@ -1,12 +1,28 @@
-import signUpUser from './4-user-promise';
-import uploadPhoto from './5-photo-reject';
+6. Handle multiple promises
+mandatory
+Score: 0.00% (Checks completed: 0.00%)
+Import signUpUser from 4-user-promise.js and uploadPhoto from 5-photo-reject.js.
 
-export default function handleProfileSignup(firstName, lastName, fileName) {
-  return Promise.allSettled([
-    signUpUser(firstName, lastName),
-    uploadPhoto(fileName),
-  ]).then((results) => results.map((result) => ({
-    status: result.status,
-    value: result.reason || result.value,
-  })));
-}
+Write and export a function named handleProfileSignup. It should accept three arguments firstName (string), lastName (string), and fileName (string). The function should call the two other functions. When the promises are all settled it should return an array with the following structure:
+
+[
+    {
+      status: status_of_the_promise,
+      value: value or error returned by the Promise
+    },
+    ...
+  ]
+bob@dylan:~$ cat 6-main.js
+import handleProfileSignup from './6-final-user';
+
+console.log(handleProfileSignup("Bob", "Dylan", "bob_dylan.jpg"));
+
+bob@dylan:~$ 
+bob@dylan:~$ npm run dev 6-main.js 
+Promise { <pending> }
+bob@dylan:~$ 
+Repo:
+
+GitHub repository: holbertonschool-web_back_end
+Directory: ES6_promise
+File: 6-final-user.js
