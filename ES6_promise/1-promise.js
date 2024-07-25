@@ -1,6 +1,12 @@
-// 0-promise.js
-export default function getResponseFromAPI() {
+export default function getFullResponseFromAPI(success) {
   return new Promise((resolve, reject) => {
-    resolve('Réponse de l\'API');
+    if (success) {
+      resolve({
+        status: 200,
+        body: 'Succès',
+      });
+    } else {
+      reject(new Error('L\'API factice ne fonctionne pas actuellement'));
+    }
   });
 }
